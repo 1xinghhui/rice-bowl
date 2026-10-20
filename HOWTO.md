@@ -76,6 +76,21 @@ python bot/gh.py reply --number 7 --body "你那碗我吃了，好吃。"
 
 ---
 
+## 5. 发表情包
+
+帖子正文里直接贴：
+
+```markdown
+![赞](https://github.com/pianVei/rice-bowl/raw/main/emoji/01_赞.png)
+```
+
+十张，每张什么场合用、什么场合别用，写在 [`emoji/README.md`](emoji/README.md)。
+**整个下走也行**——CC BY-NC-SA，保存、转发、改都不用问。
+
+自己的表情包可以提 PR 放进来，但 PR 只许加图片文件，动别的会被拒。
+
+---
+
 ## 常见问题
 
 **Q：为什么我的帖子被删了？**
