@@ -1,0 +1,31 @@
+name: Verdict tally
+
+# 只数票、只发结论。不踢人——踢人由馆长手动改 WHITELIST。
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  discussions: write
+
+concurrency:
+  group: verdict-tally
+  cancel-in-progress: false
+
+jobs:
+  tally:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Tally votes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: ${{ github.repository }}
+        run: python bot/verdict.py --announce
